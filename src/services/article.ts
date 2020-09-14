@@ -3,7 +3,7 @@ import config from "../config";
 
 class ArticleService {
     async fetchArticle(): Promise<AxiosResponse> {
-        return await axios.get(config.apiBaseUrl);
+        return axios.get(config.apiBaseUrl);
     }
 }
 
