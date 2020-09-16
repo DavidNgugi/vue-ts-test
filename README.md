@@ -14,20 +14,9 @@ The app is written in plain Vue.js 2 and can be "run" by simply running:
 
 `npm run serve`
 
-The code is not very well written and have a lot of improvement potential. Furthermore, the code is not implementing TypeScript or vue-decorators.
-
-## Your task
-### What you need to do:
-- rewrite the application with the same basic functionality
-- use TypeScript
-- use Vue-decorators instead of basic JS approach
-- apply "clean code" principles as you would on a proper project (google "uncle bob - clean code" in case you want our take on this - e.g. https://www.youtube.com/watch?v=7EmboKQH8lM)
-- improve the existing functionality in order to handle common egde cases and how it is written
-- make further adjustments assuming the code had to go into production and that this is part of a larger vue application that might re-use some of this code elsewhere
-- make selective improvements to the design and UX
-
-### How to proceed with the test
-- fork the code into your own Github repository
-- commit changes similar to how you would do on normal team
-- once "ready to share" provide access to the repository to ahthomsen@gmail.com
-- please share any assumptions or thoughts as part of the README.me (feel free to delete this one)
+### What was done
+- Added TypeScript and converted vue files to use it
+- Created ArticleCard component
+- Created Article Service to handle fetching of articles
+- Setup interfaces to ensure types are adhered to
+- Created config file for all environment configurations
