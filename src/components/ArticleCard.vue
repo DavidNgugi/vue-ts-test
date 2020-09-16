@@ -40,30 +40,4 @@ export default class ArticleCard extends Vue {
     isSelected: (article: ArticleType) => boolean;
 }
 
-// export default Vue.extend({
-//     name: 'ArticleCard',
-//     props: {
-//         article : {
-//             type: Object as () => ArticleType,
-//             required: true
-//         },
-//         index: {
-//             type: Number,
-//             required: true
-//         },
-//         markAsRead: {
-//             required: true
-//         },
-//         showAbstract: {
-//             required: true
-//         },
-//         hideAbstract: {
-//             required: true
-//         },
-//         isSelected: {
-//             required: true
-//         }
-//     }
-// });
-
 </script>
