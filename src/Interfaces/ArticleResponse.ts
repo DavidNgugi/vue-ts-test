@@ -1,9 +1,7 @@
 import ArticleType from "./ArticleType";
 
-interface ArticleResponse {
+export default interface ArticleResponse {
     data: {
         results: ArticleType
     }
 }
-
-export default ArticleResponse;
