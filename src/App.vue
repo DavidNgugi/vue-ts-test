@@ -2,9 +2,7 @@
   <div>
     <div>
       <div>
-        <div id="app"
-          class="w-full h-full bg-gray-200 p-8"
-          style="min-height: 100vh; min-width: 100%;">
+        <div id="app" class="w-full h-full bg-gray-200 p-8" style="min-height: 100vh; min-width: 100%;">
           <div class="max-w-md bg-white px-4 py-2 mx-auto rounded shadow">
             <h1 class="text-xl font-bold py-4">{{ appName}}</h1>
             <div class="text-gray-500">
@@ -14,16 +12,14 @@
             <div v-if="unreadArticles.length > 0">
               <h2>Reading list:</h2>
               
-              <div v-for="(article, index) in unreadArticles" :key="index"
-                class="bg-gray-200 px-4 py-2 my-2 rounded shadow">
+              <div v-for="(article, index) in unreadArticles" :key="index" class="bg-gray-200 px-4 py-2 my-2 rounded shadow">
                   <article-card
                     :article="article"
                     :index="index"
                     :markAsRead="markAsRead"
                     :showAbstract="showAbstract"
                     :hideAbstract="hideAbstract"
-                    :isSelected="isSelected"
-                  </article-card>
+                    :isSelected="isSelected"/>
               </div>
 
             </div>
@@ -38,8 +34,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Vue } from "vue-property-decorator";
 import ArticleService from "./services/article";
 import ArticleType from "./Interfaces/ArticleType";
 import ArticleResponse from "./Interfaces/ArticleResponse";
@@ -53,7 +48,7 @@ export default class App extends Vue {
   appName: string = "Random news site generator";
   readArticles: Array<ArticleType> = [];
   unreadArticles: Array<ArticleType> = [];
-  selectedArticle: ArticleType | null = null;
+  selectedArticle?: ArticleType | null = null;
 
   get readingStatus(): string {
     if (this.readArticles.length == 0 && this.unreadArticles.length == 0)
@@ -66,9 +61,7 @@ export default class App extends Vue {
 
   // add a new article to the reading list
   fetchRandomArticle(): void {
-    //include depedencny
-    const axios = require("axios");
-    // create get call to grab list of potential article soruces
+    // create get call to grab list of potential article sources
     try {
       const response = ArticleService.fetchArticle();
       response.then( (res: ArticleResponse) => {
@@ -79,14 +72,14 @@ export default class App extends Vue {
         // update the state
         this.unreadArticles.push(ra);
       });
-        
     } catch (error) {
       alert(error);
     }
   }
 
   isSelected(article: ArticleType): boolean {
-      return (this.selectedArticle.title == article.title);
+      if(this.selectedArticle) return (this.selectedArticle.title == article.title);
+      return false;
   }
 
   showAbstract(article: ArticleType): void {
